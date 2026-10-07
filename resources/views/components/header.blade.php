@@ -2,7 +2,7 @@
 <div class="jumbotron">
     <div class="container">
         <a href="/" title="{{ __('misc.home_alt') }}" alt="{{ __('misc.home_alt') }}">
-            <h1>{{ __('misc.homepage_title') }}</h1>
+            <button class="download-button">{{ __('misc.homepage_title') }}</button>
         </a>
         {{ $introduction_text ?? '' }}
     </div>
