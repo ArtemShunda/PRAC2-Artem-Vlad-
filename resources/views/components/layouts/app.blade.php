@@ -8,9 +8,9 @@
 <x-navbar/>
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
 
-        <div class="col-md-8">
+        <div class="col-md-8 text-center">
             <x-header/>
 
             <ul class="breadcrumb">
@@ -19,28 +19,23 @@
                 {{ $breadcrumb ?? '' }}
             </ul>
 
-            @if ( isset($_GET['q']) )
-                <x-search_results/>
-            @else
-                {{ $slot }}
-            @endif
+            <div class="breadcrumb" style="text-align: left;">
+                {{ $breadcrumb_text ?? '' }}
 
-            <ul class="breadcrumb">
-                <li>
-					<a href="/" title="{{ __('misc.home_alt') }}" alt="{{ __('misc.home_alt') }}">{{ __('misc.home') }}</a>
-				</li>
-                {{ $breadcrumb ?? '' }}
-            </ul>
-
+                @if (isset($_GET['q']))
+                    <x-search_results/>
+                @else
+                    {{ $slot }}
+                @endif
+            </div>
         </div>
-
-        <div class="row">
-            <x-footer/>
-        </div>
-
-    </div>
+ </div>
 
 
+</div>
+
+<div class="row justify-content-center text-center">
+    <x-footer/>
 </div>
 
 <!-- Bootstrap core JavaScript
