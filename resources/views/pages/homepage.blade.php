@@ -21,7 +21,19 @@
 
     <div class="container">
         <!-- Example row of columns -->
-                 <p>Hallo, {{ $naam }}!</p>
+                 <h1>Hallo, {{ $naam }}!</h1>
+                 <p>Hier is de 10 populairste handleidingen:</p>
+                 <ul>
+                     @foreach ($popularManuals as $manual)
+                         <li>
+                             <a href="/{{ $manual->brand->id }}/{{ $manual->brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/">
+                                 {{ $manual->name }}
+                             </a>
+                             ({{ number_format($manual->views_count) }} views)
+                         </li>
+                     @endforeach
+                 </ul>
+                 
         <div class="row">
 
             @foreach($brands->chunk($chunk_size) as $chunk)
